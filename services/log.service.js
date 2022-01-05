@@ -2,11 +2,11 @@ import chalk from 'chalk'
 import dedent from 'dedent-js'
 
 const printError = (err) => {
-  console.log(chalk.bgRed.blackBright(' ERROR ')` ${err}`)
+  console.log(`${chalk.bgRed.blackBright(' ERROR ')} ${err}`)
 }
 
 const printSuccess = (mes) => {
-  console.log(chalk.bgGreen.blackBright(' SUCCESS ')` ${mes}`)
+  console.log(`${chalk.bgGreen.blackBright(' SUCCESS ')} ${mes}`)
 }
 
 const printHelp = () => {
