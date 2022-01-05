@@ -16,6 +16,21 @@ const saveToken = async (token) => {
   }
 }
 
+const getForecast = async () => {
+  try {
+    const weather = await getWeather('Ashgabat')
+    console.log(weather)
+  } catch (err) {
+    if (err?.response?.status == 404) {
+      printError('Не верный город')
+    } else if (err?.response?.status == 401) {
+      printError('Неверно указан токен')
+    } else {
+      printError(err.message)
+    }
+  }
+}
+
 const initCLI = () => {
   const args = getArgs(process.argv)
   if (!!args.h) {
@@ -27,7 +42,7 @@ const initCLI = () => {
   if (!!args.t) {
     saveToken(args.t)
   }
-  getWeather('Ashgabat')
+  getForecast()
 }
 
 initCLI()
